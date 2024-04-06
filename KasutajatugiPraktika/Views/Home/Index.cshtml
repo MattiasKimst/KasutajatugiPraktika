@@ -19,7 +19,7 @@
     <tbody>
     @foreach (Ticket ticket in Model)
     {
-        <tr>
+        <tr class="@((ticket.Deadline < DateTime.Now.AddHours(1) ) ? "overdue" : "")">
             <td>@ticket.Id</td>
             <td>@ticket.Description</td>
             <td>@ticket.InsertionTime</td>
