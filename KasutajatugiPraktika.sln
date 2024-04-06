@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KasutajatugiPraktika", "KasutajatugiPraktika\KasutajatugiPraktika.csproj", "{225A50C6-B74A-48E4-995A-5A52E8BB016F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KasutajatugiPraktikaTests", "KasutajatugiPraktikaTests\KasutajatugiPraktikaTests.csproj", "{0B2F643D-BED0-474C-BD71-DCE6BFC74CFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{225A50C6-B74A-48E4-995A-5A52E8BB016F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{225A50C6-B74A-48E4-995A-5A52E8BB016F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{225A50C6-B74A-48E4-995A-5A52E8BB016F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B2F643D-BED0-474C-BD71-DCE6BFC74CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2F643D-BED0-474C-BD71-DCE6BFC74CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2F643D-BED0-474C-BD71-DCE6BFC74CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2F643D-BED0-474C-BD71-DCE6BFC74CFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
