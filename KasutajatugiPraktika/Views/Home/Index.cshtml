@@ -9,7 +9,6 @@
 <table class="table">
     <thead>
     <tr>
-        <th>Id</th>
         <th>Kirjeldus</th>
         <th>Sisestamise Aeg</th>
         <th>Lahendamise Tähtaeg</th>
@@ -20,7 +19,6 @@
     @foreach (Ticket ticket in Model)
     {
         <tr class="@((ticket.Deadline < DateTime.Now.AddHours(1) ) ? "overdue" : "")">
-            <td>@ticket.Id</td>
             <td>@ticket.Description</td>
             <td>@ticket.InsertionTime</td>
             <td>@ticket.Deadline</td>

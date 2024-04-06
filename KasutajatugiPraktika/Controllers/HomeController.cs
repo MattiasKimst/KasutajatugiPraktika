@@ -47,7 +47,7 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
     
-    public IActionResult Solve(int id)
+    public IActionResult Solve(Guid id)
     {
         _logger.LogInformation("Request to delete ticket with id: " + id + " received");
         _ticketsService.DeleteTicket(id);

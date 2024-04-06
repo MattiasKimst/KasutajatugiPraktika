@@ -49,7 +49,7 @@ public class TicketsesServiceImpl : TicketsService
     }
 
     //method for deleting a ticket by id
-    public void DeleteTicket(int id)
+    public void DeleteTicket(Guid id)
     {
         try
         {
