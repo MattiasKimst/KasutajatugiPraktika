@@ -7,8 +7,9 @@ public class TicketsesServiceImpl : TicketsService
 {
     private readonly ILogger<TicketsesServiceImpl> _logger;
 
-    private static List<Ticket> tickets = new List<Ticket>();
-    
+    private static SortedSet<Ticket> tickets =
+        new SortedSet<Ticket>(Comparer<Ticket>.Create((x, y) => y.Deadline.CompareTo(x.Deadline)));
+
     public TicketsesServiceImpl(ILogger<TicketsesServiceImpl> logger)
     {
         _logger = logger;
@@ -17,18 +18,10 @@ public class TicketsesServiceImpl : TicketsService
     // method that returns a list of all tickets sorted by deadline descending
     public List<Ticket> GetSortedTicketList()
     {
-        try
-        {
-            List<Ticket> sortedTickets = tickets.OrderByDescending(p => p.Deadline).ToList();
-            _logger.LogInformation("Tickets sorted successfully.");
-            return sortedTickets;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "An error occurred while trying to sort tickets. Returned original list instead");
-            return tickets;
-        }
+        _logger.LogInformation("Tickets sorted successfully.");
+        return tickets.ToList();
     }
+
 
     //method for adding a new ticket by description and deadline
     public void AddNewTicket(string description, DateTime deadline)
@@ -53,27 +46,9 @@ public class TicketsesServiceImpl : TicketsService
     {
         try
         {
-            Ticket removableTicket = null;
-
-            //find the ticket by id
-            foreach (Ticket ticket in tickets)
-            {
-                if (ticket.Id == id)
-                {
-                    removableTicket = ticket;
-                    break; // no need to continue searching once found
-                }
-            }
-
-            if (removableTicket != null)
-            {
-                tickets.Remove(removableTicket);
-                _logger.LogInformation("Ticket with ID " + id + " deleted successfully.");
-            }
-            else
-            {
-                _logger.LogWarning("Ticket with ID " + id + " not found. Unable to delete.");
-            }
+            Ticket removableTicket = tickets.FirstOrDefault(ticket => ticket.Id == id);
+            tickets.Remove(removableTicket);
+            _logger.LogInformation("Ticket with ID " + id + " deleted successfully.");
         }
         catch (Exception ex)
         {

@@ -18,7 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        _logger.LogInformation("Trying to sort tickets...");
+        _logger.LogInformation("Fetching sorted tickets");
         List<Ticket> sortedTickets = _ticketsService.GetSortedTicketList();
         return View(sortedTickets);
     }
@@ -42,7 +42,7 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Create(string description, DateTime deadline)
     {
-        _logger.LogInformation("Create Ticket with description" + description +" and deadline "+ deadline + " request received");
+        _logger.LogInformation("Create Ticket with description " + description +" and deadline "+ deadline + " request received");
         _ticketsService.AddNewTicket(description,deadline);
         return RedirectToAction("Index");
     }
