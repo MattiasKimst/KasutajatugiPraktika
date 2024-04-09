@@ -24,7 +24,7 @@ public class TicketsesServiceImpl : TicketsService
 
 
     //method for adding a new ticket by description and deadline
-    public void AddNewTicket(string description, DateTime deadline)
+    public Guid AddNewTicket(string description, DateTime deadline)
     {
         try
         {
@@ -32,12 +32,15 @@ public class TicketsesServiceImpl : TicketsService
             tickets.Add(ticket);
             _logger.LogInformation("New ticket added successfully with description: " + description +
                                    " and deadline: " + deadline);
+            //for testing, we return the id of created ticket so that we can use it later to find the ticket
+            return ticket.Id;
         }
         catch (Exception ex)
         {
             _logger.LogError(ex,
                 "An error occurred while adding a new ticket with description: " + description + " and deadline: " +
                 deadline + " The ticket was NOT ADDED");
+            return Guid.Empty;
         }
     }
 
@@ -56,4 +59,6 @@ public class TicketsesServiceImpl : TicketsService
                 "An error occurred while deleting a ticket with ID " + id + "The ticket WAS NOT DELETED");
         }
     }
+
+    
 }
