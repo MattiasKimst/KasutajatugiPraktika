@@ -25,6 +25,8 @@ namespace KasutajatugiPraktikaTests
             Assert.Equal("Ticket 3", sortedTickets[0].Description);
             Assert.Equal("Ticket 1", sortedTickets[1].Description);
             Assert.Equal("Ticket 2", sortedTickets[2].Description);
+            
+            
         }
 
         [Fact]

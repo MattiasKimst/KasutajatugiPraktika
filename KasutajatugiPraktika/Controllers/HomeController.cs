@@ -16,6 +16,7 @@ public class HomeController : Controller
         _ticketsService = ticketsService;
     }
 
+    //Displaying home page
     public IActionResult Index()
     {
         _logger.LogInformation("Fetching sorted tickets");
@@ -23,22 +24,26 @@ public class HomeController : Controller
         return View(sortedTickets);
     }
     
+    //Displaying create ticket page
     public IActionResult Create()
     {
         return View();
     }
 
+    //Displaying privacy page
     public IActionResult Privacy()
     {
         return View();
     }
 
+    //handling errors
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
     
+    //Create ticket form submission handling
     [HttpPost]
     public IActionResult Create(string description, DateTime deadline)
     {
@@ -47,6 +52,7 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
     
+    //Marking ticket as solved
     public IActionResult Solve(Guid id)
     {
         _logger.LogInformation("Request to delete ticket with id: " + id + " received");
