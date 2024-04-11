@@ -1,4 +1,4 @@
-using NUnit.Framework;
+
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Assert = Xunit.Assert;
@@ -10,15 +10,15 @@ namespace KasutajatugiPraktikaTests
     {
         private IWebDriver driver;
 
-        [SetUp]
-        public void Setup()
+        
+        public GuiAutomTests()
         {
             // Set up the WebDriver (ChromeDriver)
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
         }
 
-        [Test]
+        [Fact]
         public void TestTicketCreationSolving()
         {
             //values we will input to fields
@@ -90,14 +90,10 @@ namespace KasutajatugiPraktikaTests
 
             //Assert that the entry was not present in table
             Assert.True(entryNotPresent);
-        }
-
-
-        [TearDown]
-        public void TearDown()
-        {
-            // Quit the WebDriver
             driver.Quit();
         }
+
+        
+       
     }
 }
