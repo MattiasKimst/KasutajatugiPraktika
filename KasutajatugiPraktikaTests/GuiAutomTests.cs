@@ -18,6 +18,9 @@ namespace KasutajatugiPraktikaTests
             driver.Manage().Window.Maximize();
         }
 
+        
+        //the following test clicks "lisa pöördumine", fills in the fields, submits the form, checks that the added
+        //ticket is present, marks as solved, checks that the ticket isn't anymore present in the table
         [Fact]
         public void TestTicketCreationSolving()
         {
